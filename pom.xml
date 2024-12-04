@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.kieran.projects.ticketking</groupId>
+    <artifactId>ticketking-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>TicketKing Parent</name>
+    <description>A web application for ticket sales and distribution</description>
+    <packaging>pom</packaging>
+    <modules>
+        <module>ticketking-application</module>
+    </modules>
+    <url/>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Kieran</name>
+            <organization>Kieran's Personal Projects</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
+    <properties>
+        <java.version>21</java.version>
+        <project.version>0.0.1-SNAPSHOT</project.version>
+        <spring-boot.version>3.4.0</spring-boot.version>
+        <git.url>github.com/Kieran-Arul/ticketking.git</git.url>
+        <git.http.url>https://${git.url}</git.http.url>
+        <git.ssh.url>ssh://git@${git.url}</git.ssh.url>
+        <jjwt-api.version>0.12.6</jjwt-api.version>
+        <jjwt-impl.version>0.12.6</jjwt-impl.version>
+        <jjwt-jackson.version>0.12.6</jjwt-jackson.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- JWT Dependencies -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-api</artifactId>
+                <version>${jjwt-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>${jjwt-impl.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId>
+                <version>${jjwt-jackson.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <pluginManagement/>
+    </build>
+    <scm>
+        <connection>scm:git:${git.http.url}</connection>
+        <developerConnection>scm:git:${git.ssh.url}</developerConnection>
+        <tag>HEAD</tag>
+        <url>${git.http.url}</url>
+    </scm>
+</project>
