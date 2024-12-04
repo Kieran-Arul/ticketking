@@ -16,6 +16,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>ticketking-application</module>
+        <module>ticketking-acceptance</module>
     </modules>
     <url/>
     <licenses>
@@ -42,13 +43,14 @@
         <jjwt-impl.version>0.12.6</jjwt-impl.version>
         <jjwt-jackson.version>0.12.6</jjwt-jackson.version>
         <karate.version>1.5.0</karate.version>
+        <cucumber.version>7.20.1</cucumber.version>
         <git.url>github.com/Kieran-Arul/ticketking.git</git.url>
         <git.http.url>https://${git.url}</git.http.url>
         <git.ssh.url>ssh://git@${git.url}</git.ssh.url>
     </properties>
     <dependencyManagement>
         <dependencies>
-            <!-- JWT Dependencies -->
+            <!-- JWT Functionality - JJWT Dependencies -->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-api</artifactId>
@@ -66,11 +68,30 @@
                 <version>${jjwt-jackson.version}</version>
                 <scope>runtime</scope>
             </dependency>
-            <!-- Karate Dependencies -->
+            <!-- API Testing - Karate Dependencies -->
             <dependency>
                 <groupId>io.karatelabs</groupId>
                 <artifactId>karate-junit5</artifactId>
                 <version>${karate.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- Acceptance Testing - Cucumber Dependencies -->
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-java</artifactId>
+                <version>${cucumber.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-spring</artifactId>
+                <version>${cucumber.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-junit-platform-engine</artifactId>
+                <version>${cucumber.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
