@@ -29,9 +29,9 @@ public class Event {
     @Column(name = "end_time")
     private LocalTime endTime;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "venue_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "venue_id", nullable = true)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private Venue venue;
 
     public Event() {}

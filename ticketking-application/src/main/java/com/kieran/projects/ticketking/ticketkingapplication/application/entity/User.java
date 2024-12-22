@@ -1,8 +1,6 @@
 package com.kieran.projects.ticketking.ticketkingapplication.application.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Objects;
@@ -18,16 +16,19 @@ public class User {
 
     private String name;
     private String email;
-    private String username;
     private String password;
+
+    @OneToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "address_id", nullable = false)
+    private Address address;
 
     public User() {}
 
-    public User(String name, String email, String username, String password) {
+    public User(String name, String email, String password, Address address) {
         this.name = name;
         this.email = email;
-        this.username = username;
         this.password = password;
+        this.address = address;
     }
 
     @Override
@@ -38,13 +39,12 @@ public class User {
         return Objects.equals(id, user.id) &&
                 Objects.equals(name, user.name) &&
                 Objects.equals(email, user.email) &&
-                Objects.equals(username, user.username) &&
-                Objects.equals(password, user.password);
+                Objects.equals(password, user.password) &&
+                Objects.equals(address, user.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, username, password);
+        return Objects.hash(id, name, email, password, address);
     }
-
 }
