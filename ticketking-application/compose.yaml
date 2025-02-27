@@ -19,7 +19,7 @@ services:
       - 'local'
     container_name: 'ticketking-redis'
     ports:
-      - '6379'
+      - '6379:6379'
     labels:
       org.springframework.boot.ignore: true
 volumes:
